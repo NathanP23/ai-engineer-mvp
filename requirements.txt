@@ -1,1 +1,7 @@
 pytest>=7.0
+# torch 2.2.2 is the last version with macOS x86_64 (Intel) wheels; newer torch drops Intel Mac support
+torch==2.2.2
+# pinned to match torch 2.2.2, which requires transformers<4.41's older torch version check
+transformers==4.40.2
+# torch 2.2.2 was compiled against NumPy 1.x; NumPy 2.x breaks its C extension ABI
+numpy<2

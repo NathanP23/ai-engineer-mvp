@@ -50,3 +50,13 @@ CODEOWNERS_OUTPUT_PATH = DATA_RAW_DIR / "codeowners.txt"
 
 # this is how many seconds we wait for any single network call before giving up
 REQUEST_TIMEOUT_SECONDS = 15
+
+# this is the small, real, instruction-tuned open-source model used for direct HF/PyTorch inference
+INFERENCE_MODEL_NAME = "HuggingFaceTB/SmolLM2-135M-Instruct"
+
+# this caps how many new tokens the model is allowed to generate per reply, so a run can't run forever
+MAX_NEW_TOKENS = 80
+
+# this controls how random generation is: 0.0 is fully deterministic, higher values are more varied
+GENERATION_TEMPERATURE = 0.7
+
