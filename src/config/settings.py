@@ -60,3 +60,22 @@ MAX_NEW_TOKENS = 80
 # this controls how random generation is: 0.0 is fully deterministic, higher values are more varied
 GENERATION_TEMPERATURE = 0.7
 
+# this is the root folder where every derived (chunked/embedded) file gets written, kept separate
+# from data/raw so raw source data is never mixed with things we can regenerate from it
+DATA_PROCESSED_DIR = Path("data/processed")
+
+# this is the single JSON file where chunked (but not yet embedded) documents are saved
+CHUNKS_OUTPUT_PATH = DATA_PROCESSED_DIR / "chunks.json"
+
+# this is the single JSON file where chunks plus their embedding vectors are saved
+EMBEDDED_CHUNKS_OUTPUT_PATH = DATA_PROCESSED_DIR / "embedded_chunks.json"
+
+# this is how many characters each chunk contains, small enough to fit comfortably in an LLM's context window
+CHUNK_SIZE_CHARS = 800
+
+# this is how many characters consecutive chunks share, so a sentence split across a chunk boundary isn't lost
+CHUNK_OVERLAP_CHARS = 150
+
+# this is the small, real embedding model used to turn each chunk of text into a similarity-searchable vector
+EMBEDDING_MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
+
